@@ -196,17 +196,27 @@ font-style: italic;
   <div class="method-summary"></div>
   <h4><a href="#Product">Product</a></h4>
   <ul>
-  <li><a href="#addPet"><code><span class="http-method">post</span> /api/product</code></a></li>
+  <li><a href="#addProduct"><code><span class="http-method">post</span> /api/product</code></a></li>
   <li><a href="#getProductById"><code><span class="http-method">get</span> /api/product/{productId}</code></a></li>
-  <li><a href="#updatePet"><code><span class="http-method">get</span> /api/product</code></a></li>
+  <li><a href="#productId"><code><span class="http-method">get</span> /api/product</code></a></li>
+  </ul>
+  <h4><a href="#User">User</a></h4>
+  <ul>
+  <li><a href="#apiUserPost"><code><span class="http-method">post</span> /api/user</code></a></li>
+  <li><a href="#apiUserUserIdGet"><code><span class="http-method">get</span> /api/user/{userId}</code></a></li>
+  </ul>
+  <h4><a href="#Wishlist">Wishlist</a></h4>
+  <ul>
+  <li><a href="#addWishlist"><code><span class="http-method">post</span> /api/wishlist</code></a></li>
+  <li><a href="#findWishlistByUserId"><code><span class="http-method">get</span> /api/wishlist</code></a></li>
   </ul>
 
   <h1><a name="Product">Product</a></h1>
-  <div class="method"><a name="addPet"/>
+  <div class="method"><a name="addProduct"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="post"><code class="huge"><span class="http-method">post</span> /api/product</code></pre></div>
-    <div class="method-summary">Add a new product (<span class="nickname">addPet</span>)</div>
+    <div class="method-summary">Add a new product (<span class="nickname">addProduct</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -231,9 +241,27 @@ font-style: italic;
 
 
 
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ProductResponse">ProductResponse</a>
+      
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "image_link" : "http://rozainfotech.com/images/logo.png",
+  "updated_at" : 1518720965250,
+  "price" : "2.9",
+  "name" : "lipstik",
+  "description" : "description",
+  "created_at" : 1518720965250,
+  "id" : "21df2c67-4e90-4649-8e17-ac153b91a66e",
+  "type" : "type",
+  "product_link" : "http://amazon.com/"
+}</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -244,8 +272,8 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    
-        <a href="#"></a>
+    successful operation
+        <a href="#ProductResponse">ProductResponse</a>
     <h4 class="field-label">405</h4>
     Invalid input
         <a href="#"></a>
@@ -311,11 +339,11 @@ font-style: italic;
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="updatePet"/>
+  <div class="method"><a name="productId"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /api/product</code></pre></div>
-    <div class="method-summary">Find all available products (<span class="nickname">updatePet</span>)</div>
+    <div class="method-summary">Find all available products (<span class="nickname">productId</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -374,6 +402,273 @@ font-style: italic;
         
   </div> <!-- method -->
   <hr/>
+  <h1><a name="User">User</a></h1>
+  <div class="method"><a name="apiUserPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/user</code></pre></div>
+    <div class="method-summary">Create a new user (<span class="nickname">apiUserPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#UserRequest">UserRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; User object that needs to be added to the db </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UserResponse">UserResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "uid" : "uid",
+  "emailVerified" : true,
+  "photoUrl" : "photoUrl",
+  "providerData" : {
+    "uid" : "uid",
+    "photoUrl" : "photoUrl",
+    "displayName" : "displayName",
+    "providerId" : "providerId",
+    "email" : "email"
+  },
+  "providerId" : "providerId",
+  "disabled" : true,
+  "userMetadata" : {
+    "creationTimestamp" : 1498337753000,
+    "lastSignInTimestamp" : 0
+  },
+  "email" : "email"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#UserResponse">UserResponse</a>
+    <h4 class="field-label">405</h4>
+    Invalid input
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiUserUserIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/user/{userId}</code></pre></div>
+    <div class="method-summary">Find user by id (<span class="nickname">apiUserUserIdGet</span>)</div>
+    <div class="method-notes">Returns a single user</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of user to return </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UserResponse">UserResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "uid" : "uid",
+  "emailVerified" : true,
+  "photoUrl" : "photoUrl",
+  "providerData" : {
+    "uid" : "uid",
+    "photoUrl" : "photoUrl",
+    "displayName" : "displayName",
+    "providerId" : "providerId",
+    "email" : "email"
+  },
+  "providerId" : "providerId",
+  "disabled" : true,
+  "userMetadata" : {
+    "creationTimestamp" : 1498337753000,
+    "lastSignInTimestamp" : 0
+  },
+  "email" : "email"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#UserResponse">UserResponse</a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    User not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Wishlist">Wishlist</a></h1>
+  <div class="method"><a name="addWishlist"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/wishlist</code></pre></div>
+    <div class="method-summary">Add a new wishlist (<span class="nickname">addWishlist</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#WishlistRequest">WishlistRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Product object that needs to be added to the db </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#WishlistResponse">WishlistResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "image_link" : "http://rozainfotech.com/images/logo.png",
+  "product_ids" : [ "product1", "product2" ],
+  "updated_at" : 1518720965250,
+  "user_id" : "http://rozainfotech.com/images/logo.png",
+  "name" : "lipstik",
+  "description" : "description",
+  "created_at" : 1518720965250,
+  "id" : "21df2c67-4e90-4649-8e17-ac153b91a66e"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#WishlistResponse">WishlistResponse</a>
+    <h4 class="field-label">405</h4>
+    Invalid input
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findWishlistByUserId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/wishlist</code></pre></div>
+    <div class="method-summary">Finds wishlist by userId (<span class="nickname">findWishlistByUserId</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#WishlistResponse">WishlistResponse</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "image_link" : "http://rozainfotech.com/images/logo.png",
+  "product_ids" : [ "product1", "product2" ],
+  "updated_at" : 1518720965250,
+  "user_id" : "http://rozainfotech.com/images/logo.png",
+  "name" : "lipstik",
+  "description" : "description",
+  "created_at" : 1518720965250,
+  "id" : "21df2c67-4e90-4649-8e17-ac153b91a66e"
+}, {
+  "image_link" : "http://rozainfotech.com/images/logo.png",
+  "product_ids" : [ "product1", "product2" ],
+  "updated_at" : 1518720965250,
+  "user_id" : "http://rozainfotech.com/images/logo.png",
+  "name" : "lipstik",
+  "description" : "description",
+  "created_at" : 1518720965250,
+  "id" : "21df2c67-4e90-4649-8e17-ac153b91a66e"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        
+  </div> <!-- method -->
+  <hr/>
 
   <h2><a name="__Models">Models</a></h2>
   [ Jump to <a href="#__Methods">Methods</a> ]
@@ -382,6 +677,12 @@ font-style: italic;
   <ol>
     <li><a href="#ProductRequest"><code>ProductRequest</code> - </a></li>
     <li><a href="#ProductResponse"><code>ProductResponse</code> - </a></li>
+    <li><a href="#UserRequest"><code>UserRequest</code> - </a></li>
+    <li><a href="#UserResponse"><code>UserResponse</code> - </a></li>
+    <li><a href="#UserResponse_providerData"><code>UserResponse_providerData</code> - </a></li>
+    <li><a href="#UserResponse_userMetadata"><code>UserResponse_userMetadata</code> - </a></li>
+    <li><a href="#WishlistRequest"><code>WishlistRequest</code> - </a></li>
+    <li><a href="#WishlistResponse"><code>WishlistResponse</code> - </a></li>
   </ol>
 
   <div class="model">
@@ -407,6 +708,71 @@ font-style: italic;
 <div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">image_link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">product_link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UserRequest"><code>UserRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UserResponse"><code>UserResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">uid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">emailVerified (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">photoUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">disabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">userMetadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#UserResponse_userMetadata">UserResponse_userMetadata</a></span>  </div>
+<div class="param">providerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">providerData (optional)</div><div class="param-desc"><span class="param-type"><a href="#UserResponse_providerData">UserResponse_providerData</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UserResponse_providerData"><code>UserResponse_providerData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">uid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">photoUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">providerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UserResponse_userMetadata"><code>UserResponse_userMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">creationTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+<div class="param">lastSignInTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WishlistRequest"><code>WishlistRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">image_link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">product_ids (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WishlistResponse"><code>WishlistResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">user_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">image_link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">product_ids (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
 <div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
 <div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
     </div>  <!-- field-items -->
