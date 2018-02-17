@@ -203,6 +203,7 @@ font-style: italic;
   <h4><a href="#User">User</a></h4>
   <ul>
   <li><a href="#apiUserPost"><code><span class="http-method">post</span> /api/user</code></a></li>
+  <li><a href="#apiUserSigninPost"><code><span class="http-method">post</span> /api/user/signin</code></a></li>
   <li><a href="#apiUserUserIdGet"><code><span class="http-method">get</span> /api/user/{userId}</code></a></li>
   </ul>
   <h4><a href="#Wishlist">Wishlist</a></h4>
@@ -475,6 +476,63 @@ font-style: italic;
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="apiUserSigninPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/user/signin</code></pre></div>
+    <div class="method-summary">sign in user by email and password (<span class="nickname">apiUserSigninPost</span>)</div>
+    <div class="method-notes">Returns uid if successd</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#LoginRequest">LoginRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; User object that needs to be added to the db </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LoginResponse">LoginResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "uid" : "123456",
+  "password" : "test123",
+  "email" : "akshay@rozainfotech.com"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#LoginResponse">LoginResponse</a>
+    <h4 class="field-label">405</h4>
+    Invalid input
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="apiUserUserIdGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -738,6 +796,8 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
+    <li><a href="#LoginRequest"><code>LoginRequest</code> - </a></li>
+    <li><a href="#LoginResponse"><code>LoginResponse</code> - </a></li>
     <li><a href="#ProductRequest"><code>ProductRequest</code> - </a></li>
     <li><a href="#ProductResponse"><code>ProductResponse</code> - </a></li>
     <li><a href="#UserRequest"><code>UserRequest</code> - </a></li>
@@ -748,6 +808,23 @@ font-style: italic;
     <li><a href="#WishlistResponse"><code>WishlistResponse</code> - </a></li>
   </ol>
 
+  <div class="model">
+    <h3><a name="LoginRequest"><code>LoginRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LoginResponse"><code>LoginResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">uid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
   <div class="model">
     <h3><a name="ProductRequest"><code>ProductRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
